@@ -16,6 +16,8 @@
 #include "xenia/kernel/xboxkrnl/xboxkrnl_private.h"
 #include "xenia/xbox.h"
 
+#include "xenia/app/emulator_window.h"
+
 namespace xe {
 namespace kernel {
 namespace xboxkrnl {
@@ -58,7 +60,7 @@ X_STATUS xeExGetXConfigSetting(uint16_t category, uint16_t setting,
           break;
         case 0x0009:  // XCONFIG_USER_LANGUAGE
           setting_size = 4;
-          value = 0x00000001;  // English
+          value = userlang;  // 1 - English as Default
           break;
         case 0x000A:  // XCONFIG_USER_VIDEO_FLAGS
           setting_size = 4;
